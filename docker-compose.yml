@@ -1,0 +1,42 @@
+services:
+  db-inventory:
+    container_name: db-inventory
+    image: postgres:15.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ms_inventory
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 12345
+    ports:
+      - "1548:1548"
+    expose:
+      - 1548
+    command: -p 1548
+
+  db-orders:
+    container_name: db-orders
+    image: mariadb:11.4
+    restart: unless-stopped
+    environment:
+      MARIADB_DB: ms_orders
+      MARIADB_USER: root
+      MARIADB_PASSWORD: 12345
+      MARIADB_ROOT_PASSWORD: 12345
+    ports:
+      - "3306:3306"
+    expose:
+      - 3306
+
+  db-products:
+    container_name: db-products
+    image: postgres:15.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ms_inventory
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 12345
+    ports:
+      - "1549:1549"
+    expose:
+      - 1549
+    command: -p 1549
