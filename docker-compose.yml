@@ -5,13 +5,13 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_DB: ms_inventory
-      POSTGRES_USER: root
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 12345
     ports:
-      - "1548:1548"
+      - "5431:5431"
     expose:
-      - 1548
-    command: -p 1548
+      - 5431
+    command: -p 5431
 
   db-orders:
     container_name: db-orders
@@ -33,10 +33,10 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_DB: ms_products
-      POSTGRES_USER: root
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 12345
     ports:
-      - "1549:1549"
+      - "5432:5432"
     expose:
-      - 1549
-    command: -p 1549
+      - 5432
+    command: -p 5432
